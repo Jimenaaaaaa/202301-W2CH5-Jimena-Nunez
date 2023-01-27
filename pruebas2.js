@@ -6,19 +6,19 @@
 
 const game = [
   [
-    { display: "👽", status: "" },
-    { display: 0, status: "" },
-    { display: 0, status: "" },
+    { display: "👽", status: "alive" },
+    { display: 0, status: "dead" },
+    { display: 0, status: "dead" },
   ],
   [
-    { display: 0, status: "" },
-    { display: "👽", status: "" },
-    { display: "👽", status: "" },
+    { display: 0, status: "dead" },
+    { display: "👽", status: "alive" },
+    { display: "👽", status: "alive" },
   ],
   [
-    { display: 0, status: "" },
-    { display: "👽", status: "" },
-    { display: 0, status: "" },
+    { display: 0, status: "dead" },
+    { display: "👽", status: "alive" },
+    { display: 0, status: "dead" },
   ],
 ];
 
@@ -95,9 +95,9 @@ setInterval(function gameOfLife() {
     for (let j = 0; j < game[i].length; j++) {
       if (game[i][j].status === "alive") {
         game[i][j].display = "👽";
+      } else {
+        game[i][j].display = 0;
       }
-
-      game[i][j].display = 0;
     }
   }
 }, 1000);
