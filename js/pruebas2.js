@@ -4,7 +4,7 @@
 //   [0, "👽", 0],
 // ];
 
-export const game = [
+const game = [
   [
     { display: "👽", status: "alive" },
     { display: 0, status: "dead" },
@@ -39,54 +39,55 @@ setInterval(function gameOfLife(game) {
     return false;
   }
 
-  function checkAround(i, j) {
+  function checkAround(i, j, game) {
     let alive = "";
 
-    if (checkStatus(i, j - 1)) {
+    if (checkStatus(i, j - 1, game)) {
       alive++;
     }
 
-    if (checkStatus(i - 1, j - 1)) {
+    if (checkStatus(i - 1, j - 1, game)) {
       alive++;
     }
 
-    if (checkStatus(i - 1, j)) {
+    if (checkStatus(i - 1, j, game)) {
       alive++;
     }
 
-    if (checkStatus(i - 1, j + 1)) {
+    if (checkStatus(i - 1, j + 1, game)) {
       alive++;
     }
 
-    if (checkStatus(i, j + 1)) {
+    if (checkStatus(i, j + 1, game)) {
       alive++;
     }
 
-    if (checkStatus(i + 1, j + 1)) {
+    if (checkStatus(i + 1, j + 1, game)) {
       alive++;
     }
 
-    if (checkStatus(i + 1, j)) {
+    if (checkStatus(i + 1, j, game)) {
       alive++;
     }
 
-    if (checkStatus(i + 1, j - 1)) {
+    if (checkStatus(i + 1, j - 1, game)) {
       alive++;
     }
 
     return alive;
   }
 
+  round(game);
   function round(game) {
     for (let i = 0; i < game.length; i++) {
       for (let j = 0; j < game[i].length; j++) {
         if (checkStatus(i, j, game)) {
-          if (checkAround(i, j) < 2 || checkAround(i, j) > 3) {
+          if (checkAround(i, j, game) < 2 || checkAround(i, j, game) > 3) {
             game[i][j].status = "dead";
           }
         }
 
-        if (checkAround(i, j) === 3) {
+        if (checkAround(i, j, game) === 3) {
           game[i][j].status = "alive";
         }
       }
