@@ -1,6 +1,6 @@
 export function checkStatus(i, j, game) {
   if (i !== -1 && i !== game.length && j !== -1 && j !== game[i].length) {
-    if (game[i][j].display === "👽") {
+    if (game[i][j].display === '👽') {
       return true;
     }
   }
@@ -9,7 +9,7 @@ export function checkStatus(i, j, game) {
 }
 
 export function checkAround(i, j, game) {
-  let alive = "";
+  let alive = '';
 
   if (checkStatus(i, j - 1, game)) {
     alive++;
@@ -51,20 +51,20 @@ export function round(game) {
     for (let j = 0; j < game[i].length; j++) {
       if (checkStatus(i, j, game)) {
         if (checkAround(i, j, game) < 2 || checkAround(i, j, game) > 3) {
-          game[i][j].status = "dead";
+          game[i][j].status = 'dead';
         }
       }
 
       if (checkAround(i, j, game) === 3) {
-        game[i][j].status = "alive";
+        game[i][j].status = 'alive';
       }
     }
   }
 
   for (let i = 0; i < game.length; i++) {
     for (let j = 0; j < game[i].length; j++) {
-      if (game[i][j].status === "alive") {
-        game[i][j].display = "👽";
+      if (game[i][j].status === 'alive') {
+        game[i][j].display = '👽';
       } else {
         game[i][j].display = 0;
       }
