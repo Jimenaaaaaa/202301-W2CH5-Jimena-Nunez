@@ -50,13 +50,23 @@ export function round(game) {
   for (let i = 0; i < game.length; i++) {
     for (let j = 0; j < game[i].length; j++) {
       if (checkStatus(i, j, game)) {
-        if (checkAround(i, j) < 2 || checkAround(i, j) > 3) {
+        if (checkAround(i, j, game) < 2 || checkAround(i, j, game) > 3) {
           game[i][j].status = "dead";
         }
       }
 
-      if (checkAround(i, j) === 3) {
+      if (checkAround(i, j, game) === 3) {
         game[i][j].status = "alive";
+      }
+    }
+  }
+
+  for (let i = 0; i < game.length; i++) {
+    for (let j = 0; j < game[i].length; j++) {
+      if (game[i][j].status === "alive") {
+        game[i][j].display = "👽";
+      } else {
+        game[i][j].display = 0;
       }
     }
   }
