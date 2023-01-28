@@ -1,4 +1,4 @@
-const game = [
+export const game = [
   [
     { display: "👽", status: "alive" },
     { display: 0, status: "dead" },
