@@ -52,7 +52,7 @@ describe("Given checkAround", () => {
 
 describe("Given 'round'", () => {
   describe("When we have three parameters being 0, 1, game", () => {
-    test("The status of game[1][2] should be", () => {
+    test("The status of game[1][2] should be ", () => {
       round(game);
       const expected = "dead";
       const r = game[1][2].status;
