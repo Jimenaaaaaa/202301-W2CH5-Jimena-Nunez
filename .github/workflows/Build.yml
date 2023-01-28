@@ -1,4 +1,4 @@
-name: sonar
+name: Sonar
 on:
   push:
     branches:
