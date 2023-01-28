@@ -30,18 +30,7 @@ const game = [
 //     rightVert = true;
 //   }
 // }
-setInterval(
-
-function gameOfLife () {
-
-
-
-
-
-}
-  ,1000)
-
-
+setInterval(function gameOfLife() {}, 1000);
 
 function checkStatus(i, j) {
   if (game[i][j] === "👽") {

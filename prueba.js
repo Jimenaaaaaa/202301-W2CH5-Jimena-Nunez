@@ -12,7 +12,7 @@ setInterval(function gameOfLife() {
   ${game[0][0]} ${game[0][1]} ${game[0][2]} \n`);
 
   function checkStatus(i, j) {
-    if (i !== -1 && j!== -1) {
+    if (i !== -1 && j !== -1) {
       if (game[i][j] === "👽") {
         return true;
       }
