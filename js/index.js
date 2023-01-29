@@ -52,9 +52,7 @@ function checkAround(i, j, game) {
   return alive;
 }
 
-
 function change(i, j) {
-
   const row = document.querySelector(`.row[style='--i:${i}']`);
   if (row) {
     const square = row.querySelector(`.square[style='--j:${j}']`);
@@ -65,11 +63,8 @@ function change(i, j) {
         square.style.backgroundColor = 'white';
       }
     }
-
   }
 }
-
-
 
 // Function change(i, j) {
 //   const row = document.querySelector(`.row[style='--i:${i}']`);
