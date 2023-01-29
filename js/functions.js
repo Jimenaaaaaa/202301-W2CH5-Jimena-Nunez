@@ -66,7 +66,7 @@ export function round(game) {
       if (game[i][j].status === 'alive') {
         game[i][j].display = '👽';
       } else {
-        game[i][j].display = 0;
+        game[i][j].display = '-';
       }
     }
   }

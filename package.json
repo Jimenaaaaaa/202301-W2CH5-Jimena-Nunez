@@ -8,8 +8,7 @@
     "test": "jest --watchAll --coverage",
     "test:prod": "jest —-watchAll —-coverage —-watchAll=false",
     "prepare": "husky install",
-    "sass":"sass sass:css --watch"
-
+    "sass": "sass sass:css --watch"
   },
   "author": "Jimena",
   "license": "ISC",
