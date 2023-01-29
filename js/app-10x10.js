@@ -1,3 +1,5 @@
+import { round } from './functions.js';
+
 const game = [
   [
     { display: '👽', status: 'alive' },
@@ -134,80 +136,6 @@ setInterval(() => {
   ${game[7][0].display}  ${game[7][1].display}  ${game[7][2].display}  ${game[7][3].display}  ${game[7][4].display}  ${game[7][5].display}  ${game[7][6].display}  ${game[7][7].display}  ${game[7][8].display}  ${game[7][9].display} \n
   ${game[8][0].display}  ${game[8][1].display}  ${game[8][2].display}  ${game[8][3].display}  ${game[8][4].display}  ${game[8][5].display}  ${game[8][6].display}  ${game[8][7].display}  ${game[8][8].display}  ${game[8][9].display} \n
   ${game[9][0].display}  ${game[9][1].display}  ${game[9][2].display}  ${game[9][3].display}  ${game[9][4].display}  ${game[9][5].display}  ${game[9][6].display}  ${game[9][7].display}  ${game[9][8].display}  ${game[9][9].display} \n`);
-
-  function checkStatus(i, j, game) {
-    if (i !== -1 && i !== game.length && j !== -1 && j !== game[i].length) {
-      if (game[i][j].display === '👽') {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  function checkAround(i, j, game) {
-    let alive = '';
-
-    if (checkStatus(i, j - 1, game)) {
-      alive++;
-    }
-
-    if (checkStatus(i - 1, j - 1, game)) {
-      alive++;
-    }
-
-    if (checkStatus(i - 1, j, game)) {
-      alive++;
-    }
-
-    if (checkStatus(i - 1, j + 1, game)) {
-      alive++;
-    }
-
-    if (checkStatus(i, j + 1, game)) {
-      alive++;
-    }
-
-    if (checkStatus(i + 1, j + 1, game)) {
-      alive++;
-    }
-
-    if (checkStatus(i + 1, j, game)) {
-      alive++;
-    }
-
-    if (checkStatus(i + 1, j - 1, game)) {
-      alive++;
-    }
-
-    return alive;
-  }
-
-  const round = (game) => {
-    for (let i = 0; i < game.length; i++) {
-      for (let j = 0; j < game[i].length; j++) {
-        if (checkStatus(i, j, game)) {
-          if (checkAround(i, j, game) < 2 || checkAround(i, j, game) > 3) {
-            game[i][j].status = 'dead';
-          }
-        }
-
-        if (checkAround(i, j, game) === 3) {
-          game[i][j].status = 'alive';
-        }
-      }
-    }
-
-    for (let i = 0; i < game.length; i++) {
-      for (let j = 0; j < game[i].length; j++) {
-        if (game[i][j].status === 'alive') {
-          game[i][j].display = '👽';
-        } else {
-          game[i][j].display = '-';
-        }
-      }
-    }
-  };
 
   round(game);
 }, 1000);
